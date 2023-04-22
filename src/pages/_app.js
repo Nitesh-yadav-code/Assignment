@@ -1,5 +1,21 @@
-import '@/styles/globals.css'
+import Navbar from '@/components/Navbar'
+import '../styles/globals.css'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+function MyApp({ Component, pageProps }) {
+  return <>
+  <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+  <Navbar/>
+  <Component {...pageProps} />
+  </ThemeProvider>
+  </>
 }
+
+export default MyApp
